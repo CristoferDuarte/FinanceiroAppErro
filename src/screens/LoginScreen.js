@@ -13,23 +13,23 @@ export default function LoginScreen() {
   const handleAuth = async () => {
     if (isRegistering) {
       if (password !== confirmPassword) {
-        Alert.alert("Erro", "As senhas não coincidem.");
+       alert("Erro", "As senhas não coincidem.");
         return;
       }
       try {
         await createUserWithEmailAndPassword(auth, email, password);
-        Alert.alert("Sucesso", "Conta criada com sucesso!");
+        alert("Sucesso", "Conta criada com sucesso!");
         navigation.navigate("Home"); // redireciona após registro
       } catch (error) {
-        Alert.alert("Erro", error.message);
+        alert("Erro", error.message);
       }
     } else {
       try {
         await signInWithEmailAndPassword(auth, email, password);
-        Alert.alert("Bem-vindo", "Login realizado com sucesso!");
+        alert("Bem-vindo", "Login realizado com sucesso!");
         navigation.navigate("Home"); // redireciona após login
       } catch (error) {
-        Alert.alert("Erro", error.message);
+       alert("Erro", error.message);
       }
     }
   };
